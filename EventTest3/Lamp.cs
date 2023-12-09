@@ -6,24 +6,29 @@ using System.Threading.Tasks;
 
 namespace EventTest3
 {
-	internal class Lamp
+	internal class Lamp : ISwitchable
 	{
-		Switcher switcher;
-
-		public Lamp(Switcher switcher)
+		public void SwitchOn()
 		{
-			this.switcher = switcher;
-
-			switcher.switched += On;
+			Console.WriteLine("Lamp is on");
 		}
 
-		public void On(object sender, bool on)
+		public void SwitchOff()
 		{
-			Switcher? switcher = sender as Switcher;
-			if (on)
-				Console.WriteLine("Lamp On");
-			else
-				Console.WriteLine("Lamp Off");
+			Console.WriteLine("Lamp is off");
+		}
+	}
+
+	class Diod : ISwitchable
+	{
+		public void SwitchOn()
+		{
+			Console.WriteLine("Diod is on");
+		}
+
+		public void SwitchOff()
+		{
+			Console.WriteLine("Diod is off");
 		}
 	}
 }

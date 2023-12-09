@@ -10,23 +10,21 @@ namespace EventTest3
 
 	internal class Switcher
 	{
-		public event SwitchOnHandler switched;
+		ISwitchable switchable;
 
-		public virtual void OnSwitchChanged(object sender, bool on) { }
-
-		public Switcher()
+		public Switcher(ISwitchable switchable)
 		{
-			switched += OnSwitchChanged;
+			this.switchable = switchable;
 		}
 
 		public void SwitchOn()
 		{
-			switched(this, true);
+			switchable.SwitchOn();
 		}
 
 		public void SwitchOff()
 		{
-			switched(this, false);
+			switchable.SwitchOff();
 		}
 	}
 }

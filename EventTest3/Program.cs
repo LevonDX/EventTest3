@@ -4,10 +4,9 @@
 	{
 		static void Main(string[] args)
 		{
-			Switcher switcher = new Switcher();
-		
-			Lamp lamp = new Lamp(switcher);
+			Switcher switcher = new Switcher(new Diod());
 
+			switcher.SwitchOn();
 			switcher.SwitchOff();
 		}
 	}
